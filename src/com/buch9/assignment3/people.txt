@@ -1,0 +1,7 @@
+name surname age phone number
+Adi Hadean 40 0720234567
+Florin Dumitrescu 42 0721234567
+Catalin Scarlatescu 45 0722234567
+Sorin Bontea 43 0723234567
+Irina Hristu 35 0724234567
+Mardaloescu Serban 26 0725234567

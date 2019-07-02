@@ -6,6 +6,10 @@ public class Main {
         System.out.println("Hello Buch9!");
         JavaDeveloper jd = new JavaDeveloper();
         jd.code();
+        jd.code("Java");
+
+        Developer developer = new Developer(Developer.CodingLanguage.Python);
+        System.out.println(developer.knowsC());
 
     }
 }

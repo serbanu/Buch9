@@ -3,6 +3,7 @@ package com.buch9.assignment1;
 public class JavaDeveloper extends Developer {
 
     public JavaDeveloper() {
+        super();
         System.out.println("I'm yet a new Java Developer!");
     }
 

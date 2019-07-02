@@ -6,7 +6,7 @@ import java.util.List;
 //Depozit de ustensile de bucatarie
 public class Warehouse {
 
-    private static Warehouse self;
+    private static Warehouse self = null;
     
     private List<ChefKnife> chefKnives;
     private List<FishTongs> fishTongs;
@@ -21,7 +21,11 @@ public class Warehouse {
     }
     
     public static Warehouse buildWarehouse() {
-        return self == null ? new Warehouse() : self;
+        if (self == null) {
+            self = new Warehouse();
+        }
+
+        return self;
     }
 
     public void addChefKnives(List<ChefKnife> chefKnives) {
@@ -38,7 +42,13 @@ public class Warehouse {
     }
 
     public void listSumOfChefKnives() {
-        double sum = chefKnives.stream().map(ChefKnife::getPrice).reduce(0d, Double::sum);
+        double sum = chefKnives.stream()
+                .map(ChefKnife::getPrice)
+                .reduce(0d, Double::sum);
+        double sum2 = 0d;
+        for (int i = 0; i <  chefKnives.size(); i++) {
+            sum2 = sum2 + chefKnives.get(i).getPrice();
+        }
         System.out.println(String.format("The sum of the chef knives in the warehouse is: %s", sum));
     }
 
@@ -65,8 +75,7 @@ public class Warehouse {
         BurgerPress burgerPress;
         for (int i = 0; i < noOfBurgerPresses; ++i) {
             burgerPress = new BurgerPress("DefaultBurgerPress" + i);
-            burgerPresses.add(burgerPress);
-            printItem(burgerPress);
+            addBurgerPress(burgerPress);
         }
     }
 

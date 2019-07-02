@@ -12,12 +12,27 @@ public class Main {
         Warehouse warehouse = Warehouse.buildWarehouse();
         warehouse.addChefKnife(chefKnife1);
         warehouse.addChefKnife(chefKnife2);
+        warehouse.removeChefKnife(chefKnife1);
+        warehouse.addChefKnife(new ChefKnife("", 0d));
+        warehouse.removeChefKnife(new ChefKnife("", 0d));
         warehouse.addChefKnives(buildChefKnifeList());
         warehouse.listSumOfChefKnives();
         warehouse.removeChefKnife(chefKnife2);
         warehouse.listSumOfChefKnives();
 
         warehouse.addBurgerPressesInBulk(15);
+        System.out.println(chefKnife1);
+        System.out.println(chefKnife2);
+        System.out.println(chefKnife1.hashCode());
+        System.out.println(chefKnife2.hashCode());
+        System.out.println(chefKnife1.equals(chefKnife2));
+        System.out.println(new ChefKnife("", 0d).equals(new ChefKnife("", 0d)));
+        System.out.println(getI());
+    }
+
+    private static int getI() {
+        int i = 3;
+        return ++i + i++ ;
     }
 
     private static List<ChefKnife> buildChefKnifeList() {

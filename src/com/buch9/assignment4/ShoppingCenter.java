@@ -17,7 +17,7 @@ public class ShoppingCenter {
         if (person == null) {
             System.out.println("Invalid person credentials.");
         } else {
-            map.put(person, new ArrayList<Vehicle>());
+            map.put(person, new ArrayList<>());
             System.out.println(person.getSurname() + " "
                     + person.getName() + " has been registered.");
         }
@@ -35,11 +35,25 @@ public class ShoppingCenter {
                 //Updatam `map`
                 entry.setValue(list);
                 System.out.println(person.getSurname() + " " + person.getName()
-                        + " a cumparat bicileta " + vehicle.getBrand()
+                        + " a cumparat " + vehicle.getBrand()
                         + " " + vehicle.getModel());
             }
         }
     }
 
     //Print map info
+    public void printMapInfo() {
+        //Iteram prin Map
+        for (Map.Entry<Person, List<Vehicle>> entry : map.entrySet()) {
+            //Pentru fiecare persoana printam numele...
+            Person person = entry.getKey();
+            List<Vehicle> vehicles = entry.getValue();
+            //Printam cate vehicule are...
+            System.out.println(person.getName() + person.getSurname()+ " are " + vehicles.size() + " vehicule:");
+            for (Vehicle v : vehicles) {
+                //Printam fiecare vehicul
+                System.out.println(v);
+            }
+        }
+    }
 }

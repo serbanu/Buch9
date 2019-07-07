@@ -40,8 +40,7 @@ public class Person {
         if (obj instanceof Person) {
             Person person = (Person) obj;
             return this.getName().equals(person.getName())
-                    && this.getSurname().equals(person.getSurname())
-                    && this.getDateOfBirth().equals(person.getDateOfBirth());
+                    && this.getSurname().equals(person.getSurname());
         }
 
         return false;

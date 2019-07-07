@@ -14,11 +14,11 @@ public final class Parser {
         Person person = null;
 
         if (input.matches(VEHICLE_PATTERN)) {
-            // John Oliver buy bike Tohan,Cursiera
+            // John Oliver buy bike TOHAN,CURSIERA(litere mari)
             // John Oliver buy car Dacia,Break
             String[] tokens = input.split("buy");
             String[] buyer = tokens[0].split(" ");//John Oliver
-            String[] product = tokens[1].split(" ");// bike Tohan,Cursiera
+            String[] product = tokens[1].split(" ");// bike TOHAN,CURSIERA
             String[] vehicleType = product[2].split(",");
 
             for (BikeBrand brand : BikeBrand.values()) {
@@ -26,7 +26,8 @@ public final class Parser {
                     for (BikeModel model : BikeModel.values()) {
                         if (model.toString().contains(vehicleType[1])) {
                             vehicle = new Bike(brand, model);
-                            person = new Person(buyer[0], buyer[1]);
+                            person = new Person(buyer[1], buyer[0]);
+                            break;
                         }
                     }
 
@@ -38,7 +39,8 @@ public final class Parser {
                     for (CarModel model : CarModel.values()) {
                         if (model.toString().contains(vehicleType[1])) {
                             vehicle = new Car(model, brand);
-                            person = new Person(buyer[0], buyer[1]);
+                            person = new Person(buyer[1], buyer[0]);
+                            break;
                         }
                     }
 

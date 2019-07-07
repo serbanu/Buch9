@@ -19,4 +19,9 @@ public class Bike implements Vehicle {
     public Enum getBrand() {
         return bikeBrand;
     }
+
+    @Override
+    public String toString() {
+        return bikeBrand + " " + bikeModel;
+    }
 }
